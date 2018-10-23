@@ -1,6 +1,9 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
+import seaborn as sns
+
+sns.set()
 
 from datetime import datetime
 from sklearn.linear_model import LinearRegression
