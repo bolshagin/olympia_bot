@@ -2,6 +2,7 @@ import telebot
 import time
 import forecast
 
+from datetime import datetime
 from crawl import get_visitors
 from telebot import apihelper
 
@@ -32,9 +33,13 @@ def send_help(message):
 
 @bot.message_handler(commands=['pred'])
 def get_predict(message):
-    bot.send_chat_action(message.chat.id, 'typing')
-    forecast.make_forecast()
-    bot.send_photo(message.chat.id, open(PIC_PATH + 'prediction.png', 'rb'))
+    now = datetime.now()
+    start, end = now.replace(hour=7, minute=0, second=0), now.replace(hour=22, minute=30, second=0)
+    if start < now < end:
+        forecast.make_forecast()
+        bot.send_photo(message.chat.id, open(PIC_PATH + 'prediction.png', 'rb'))
+    else:
+        bot.send_message(message.chat.id, 'Бассейн в данный момент закрыт.')
 
 
 @bot.message_handler(commands=['start'])
