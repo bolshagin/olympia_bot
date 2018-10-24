@@ -3,14 +3,14 @@ import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
 import seaborn as sns
 
-sns.set()
-
 from datetime import datetime
 from sklearn.linear_model import LinearRegression
 from constants import DATA_PATH, PIC_PATH
 
 import warnings
+
 warnings.filterwarnings("ignore")
+sns.set()
 
 
 def code_target(data, cat_feature, real_feature, agg='mean'):
