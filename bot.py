@@ -34,7 +34,10 @@ def send_help(message):
 @bot.message_handler(commands=['pred'])
 def get_predict(message):
     now = datetime.now()
-    start, end = now.replace(hour=7, minute=0, second=0), now.replace(hour=22, minute=30, second=0)
+
+    morning = 7 if now.weekday() < 5 else 8
+    start, end = now.replace(hour=morning, minute=0, second=0), now.replace(hour=22, minute=30, second=0)
+
     if start < now < end:
         forecast.make_forecast()
         bot.send_photo(message.chat.id, open(PIC_PATH + 'prediction.png', 'rb'))
