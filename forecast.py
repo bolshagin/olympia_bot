@@ -86,7 +86,7 @@ def make_prediction_pic(data, data_future, pred_future):
     ax.set_xlim(date_min, date_max)
     fig.autofmt_xdate()
 
-    ax.grid (True)
+    ax.grid(True)
     plt.savefig(PIC_PATH + 'prediction.png')
 
 
