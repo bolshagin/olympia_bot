@@ -20,7 +20,7 @@ def send_help(message):
                                       'комфортно плавать, а не толкаться на воде :) '
                                       'Оценить занятость дорожек можно тут:\n{0}\n\n'
                                       'Какие команды понимает бот?\n'
-                                      '/start - показывает информацию о количестве человек в бассейне '
+                                      '/now - показывает информацию о количестве человек в бассейне '
                                       'и тренажерном зале\n'
                                       '/pred - бот строит прогноз посещаемости бассейна на текущий день, вычисление '
                                       'прогноза занимает некоторое время, поэтому стоит немного подождать.\n'
@@ -45,7 +45,7 @@ def get_predict(message):
         bot.send_message(message.chat.id, 'Бассейн в данный момент закрыт.')
 
 
-@bot.message_handler(commands=['start'])
+@bot.message_handler(commands=['now'])
 def get_pool_visitors(message):
     pool_visitors = get_visitors()
     if pool_visitors is None:
@@ -60,7 +60,7 @@ def get_pool_visitors(message):
 
 @bot.message_handler(content_types=['text'])
 def help_short(message):
-    bot.send_message(message.chat.id, '/start - посмотреть, сколько человек в бассейне\n'
+    bot.send_message(message.chat.id, '/now - посмотреть, сколько человек в бассейне\n'
                                       '/pred - прогноз посещаемости бассейна на текущий день\n'
                                       '/help - подробная справка по боту')
 
