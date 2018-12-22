@@ -7,11 +7,6 @@ from datetime import datetime
 from sklearn.linear_model import LinearRegression
 from constants import DATA_PATH, PIC_PATH
 
-import warnings
-
-warnings.filterwarnings("ignore")
-sns.set()
-
 
 def code_target(data, cat_feature, real_feature, agg='mean'):
     return dict(data.groupby(cat_feature)[real_feature].agg(agg))
