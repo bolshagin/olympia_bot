@@ -1,7 +1,6 @@
 __pycache__
 .idea
 .ipynb_checkpoints
-notebooks
 data
 pic
 proxy.txt
